@@ -4,8 +4,7 @@
 "" Colorscheme
 syntax enable
 
-packadd! dracula
-colorscheme dracula
+colorscheme nord
 
 "" Encoding
 set encoding=utf-8
