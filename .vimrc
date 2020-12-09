@@ -1,15 +1,21 @@
-"**************************************************************************
+"*****************************************************************************
 "" Basic Setup
-"**************************************************************************
+"*****************************************************************************
+"" Enter the current millenium
+set nocompatible
+
 "" Colorscheme
 syntax enable
-
-colorscheme nord
+colorscheme gruvbox
+set background=dark
 
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+
+" Enable plugins (for netrw)
+filetype plugin on
 
 set ttyfast
 set noesckeys
@@ -30,17 +36,17 @@ let mapleader=','
 set hidden
 
 "" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch   " highlight search terms
+set incsearch  " show search matches as you type
+set ignorecase " ignore case when searching
+set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 set fileformats=unix,dos
 
-" Show line numbers
+"" Show line numbers
 set number
 
-" Turn off modelines
+"" Turn off modelines
 set modelines=0
 
 "" Dim NonText and SpecialKey
@@ -53,32 +59,48 @@ set listchars+=tab:→\ ,trail:·
 set invlist
 
 
-"**************************************************************************
+"*****************************************************************************
+"" Finding Files:
+"*****************************************************************************
+"" Search down into subfolders
+"" Provides tab-completion for all file-related tasks
+set path+=**
+
+"" Display all matching files when we tab complete
+set wildmenu
+
+
+"*****************************************************************************
 "" Status Lines
-"**************************************************************************
+"*****************************************************************************
 set laststatus=2        " always on
 set statusline=
 
-hi NormalColor ctermbg=Gray ctermfg=Black
-hi NormalColorBackgound ctermbg=DarkGray ctermfg=Black
-hi InsertColor ctermbg=Green ctermfg=Black
-hi ReplaceColor ctermbg=Yellow ctermfg=Black
-hi VisualColor ctermbg=Brown ctermfg=Black
-
 " Automatically change the statusline color depending on mode
-set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+hi NormalColor ctermbg=Gray ctermfg=Black
+hi BackgoundColor ctermbg=DarkGray ctermfg=Black
+hi HighlightedColor ctermbg=LightGray ctermfg=Black
+hi InsertColor ctermbg=Green ctermfg=Black
+hi VisualColor ctermbg=Brown ctermfg=Black
+hi ReplaceColor ctermbg=Yellow ctermfg=Black
+
+set statusline+=%#HighlightedColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 
-set statusline+=%#NormalColorBackgound#%{''}
-set statusline+=\ %<%f             " Filename
-set statusline+=%m%r%h%w           " Modified, readonly, helpfile, preview
+set statusline+=%#NormalColor#%{''}
+set statusline+=\ %f\               " Filename
+
+set statusline+=%#BackgoundColor#%{''}
+set statusline+=\ %m%r%h%w           " Modified, readonly, helpfile, preview
 
 set statusline+=%=                 " Switch to the right side
-"set statusline+=%b,0x%-6B\        " Current char
-set statusline+=\ %y               " File type
+set statusline+=\ %y\              " File type
+
+set statusline+=%#NormalColor#%{''}
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]\ 
-set statusline+=\ %#NormalColor#%{''}
+
+set statusline+=%#HighlightedColor#%{''}
 set statusline+=\ %p%%\ \☰\ %l\/%L\ ln\ \:\ %c\ 
