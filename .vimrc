@@ -68,7 +68,7 @@ set path+=**
 
 "" Display all matching files when we tab complete
 set wildmenu
-
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 
 "*****************************************************************************
 "" Status Lines
