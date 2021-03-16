@@ -1,7 +1,7 @@
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-"" Enter the current millenium
+" enable vim features instead of strict vi compatibility
 set nocompatible
 
 "" Colorscheme
@@ -9,18 +9,20 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 
-"" Encoding
+"" Encodings
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-" Enable plugins (for netrw)
+" enable loading the plugin file for specific file types
 filetype plugin on
 
+" Speed up scrolling in Vim
 set ttyfast
+
 set noesckeys
 
-"" Fix backspace indent
+" Fix backspace indent
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
@@ -43,10 +45,10 @@ set smartcase  " ignore case if search pattern is all lowercase, case-sensitive 
 
 set fileformats=unix,dos
 
-"" Show line numbers
+" Show line numbers
 set number
 
-"" Turn off modelines
+" Turn off modelines
 set modelines=0
 
 "" Dim NonText and SpecialKey
@@ -58,6 +60,9 @@ set listchars+=space:·
 set listchars+=tab:→\ ,trail:·
 set invlist
 
+" Highlight the Current Line
+set cursorline
+
 
 "*****************************************************************************
 "" Finding Files:
@@ -65,10 +70,11 @@ set invlist
 "" Search down into subfolders
 "" Provides tab-completion for all file-related tasks
 set path+=**
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 
 "" Display all matching files when we tab complete
 set wildmenu
-set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+
 
 "*****************************************************************************
 "" Status Lines
@@ -90,10 +96,10 @@ set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 
 set statusline+=%#NormalColor#%{''}
-set statusline+=\ %f\               " Filename
+set statusline+=\ %f\              " Filename
 
 set statusline+=%#BackgoundColor#%{''}
-set statusline+=\ %m%r%h%w           " Modified, readonly, helpfile, preview
+set statusline+=\ %m%r%h%w         " Modified, readonly, helpfile, preview
 
 set statusline+=%=                 " Switch to the right side
 set statusline+=\ %y\              " File type
