@@ -5,7 +5,7 @@
 set nocompatible
 
 "" Colorscheme
-if !exists('g:os') && has('win32') || has('win32unix')
+if !exists('g:os') && (has('win32') || has('win32unix'))
     set t_Co=256
     set t_ut="" " erase areas of the screen (BCE)
 endif
