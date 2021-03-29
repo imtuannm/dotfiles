@@ -5,6 +5,10 @@
 set nocompatible
 
 "" Colorscheme
+if !exists('g:os') && has('win32') || has('win32unix')
+    set t_Co=256
+    set t_ut="" " erase areas of the screen (BCE)
+endif
 syntax enable
 colorscheme gruvbox
 set background=dark
@@ -62,6 +66,9 @@ set invlist
 
 " Highlight the Current Line
 set cursorline
+
+" flash its screen instead of sounding a beep
+set visualbell
 
 
 "*****************************************************************************
