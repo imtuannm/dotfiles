@@ -13,7 +13,7 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 
-"" Display a vertical line
+"" Display vertical lines
 if exists('+colorcolumn')
   set colorcolumn=80,100
 endif
