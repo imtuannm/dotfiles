@@ -16,7 +16,7 @@ try
   colorscheme gruvbox
   set background=dark
 catch
-  silent! colorscheme
+  "silent! colorscheme
 endtry
 
 "" Display vertical lines
