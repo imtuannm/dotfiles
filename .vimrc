@@ -13,6 +13,11 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 
+"" Display a vertical line
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
 "" Encodings
 set encoding=utf-8
 set fileencoding=utf-8
