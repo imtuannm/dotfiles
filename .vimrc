@@ -1,7 +1,7 @@
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-" enable vim features instead of strict vi compatibility
+" Enable Vim features instead of strict Vi compatibility
 set nocompatible
 
 "" Colorscheme
@@ -9,9 +9,15 @@ if !exists('g:os') && (has('win32') || has('win32unix'))
   set t_Co=256
   set t_ut="" " erase areas of the screen (BCE)
 endif
+
 syntax enable
-colorscheme gruvbox
-set background=dark
+
+try
+  colorscheme gruvbox
+  set background=dark
+catch
+  silent! colorscheme
+endtry
 
 "" Display vertical lines
 if exists('+colorcolumn')
@@ -23,7 +29,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-" enable loading the plugin file for specific file types
+" Enable loading the plugin file for specific file types
 filetype plugin on
 
 " Speed up scrolling in Vim
@@ -72,7 +78,7 @@ set invlist
 " Highlight the Current Line
 set cursorline
 
-" flash its screen instead of sounding a beep
+" Flash its screen instead of sounding a beep
 set visualbell
 
 
