@@ -6,8 +6,8 @@ set nocompatible
 
 "" Colorscheme
 if !exists('g:os') && (has('win32') || has('win32unix'))
-    set t_Co=256
-    set t_ut="" " erase areas of the screen (BCE)
+  set t_Co=256
+  set t_ut="" " erase areas of the screen (BCE)
 endif
 syntax enable
 colorscheme gruvbox
@@ -15,7 +15,7 @@ set background=dark
 
 "" Display a vertical line
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=80,100
 endif
 
 "" Encodings
