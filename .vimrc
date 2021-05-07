@@ -114,7 +114,7 @@ set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 
 set statusline+=%#NormalColor#%{''}
-set statusline+=\ %f\              " Filename
+set statusline+=\ %<%F\            " Filename, cut if needed at start
 
 set statusline+=%#BackgoundColor#%{''}
 set statusline+=\ %m%r%h%w         " Modified, readonly, helpfile, preview
