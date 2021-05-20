@@ -4,25 +4,22 @@
 " Enable Vim features instead of strict Vi compatibility
 set nocompatible
 
-"" Colorscheme
-if !exists('g:os') && (has('win32') || has('win32unix'))
+if has('win32') || has('win32unix')
   set t_Co=256
   set t_ut="" " erase areas of the screen (BCE)
 endif
 
 syntax enable
 
+"" Colorscheme
 try
   colorscheme gruvbox
   set background=dark
 catch
-  "silent! colorscheme
 endtry
 
 "" Display vertical lines
-if exists('+colorcolumn')
-  set colorcolumn=80,100
-endif
+silent! set colorcolumn=80,100
 
 "" Encodings
 set encoding=utf-8
